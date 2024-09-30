@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <style>
+        body{
+            font-family: sans-serif;
+            background-color: skyblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100hv;
+            margin: 0;
+        }
+
+        .login{
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        h2{
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .input-group{
+            margin-bottom: 15px;
+        }
+
+        label{
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type= "text"],
+        input[type= "password"]{
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+
+        button{
+            width: 100%;
+            padding: 10px;
+            background-color:green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 5px;
+        }
+
+        button hover{
+            background-color: blue;
+        }
+
+        #errorMessage{
+            color: red;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="login">
+        <h2>Login</h2>
+        <form id="loginForm" onsubmit="return validatedLogin()">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="text" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+
+        <span id="notif"></span>
+        </form>
+    </div>
+    <script>
+        function validatedLogin(){
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            var notif = document.getElementById("notif");
+
+                if(username === "gelo" && password == "1223"){
+                    notif.innerText = "Login successfully!";
+                    window.location.href="Calculator.html";
+                    return false;
+                }else{
+                    notif.textContent = "incorrect username or password! Please try again!"
+                }
+        }
+    </script>
+</body>
+</html>
